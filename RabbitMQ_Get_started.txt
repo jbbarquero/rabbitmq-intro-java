@@ -1,0 +1,43 @@
+RabbitMQ Get started
+
+https://www.rabbitmq.com/getstarted.html
+
+Prerequisites
+
+This tutorial assumes RabbitMQ is installed and running on localhost on standard port (5672). In case you use a different host, port or credentials, connections settings would require adjusting.
+
+· Downloading and Installing RabbitMQ: https://www.rabbitmq.com/download.html
+- Installing on Windows (manual): https://www.rabbitmq.com/install-windows-manual.html
+- Installing on Debian / Ubuntu: https://www.rabbitmq.com/install-debian.html
+- Installing on Mac: https://www.rabbitmq.com/install-standalone-mac.html
+- Docker image: https://hub.docker.com/_/rabbitmq/ (docker pull rabbitmq)
+
+>>>>> WINDOWS:
+
+PS C:\Users\jbbar> cd C:\Users\jbbar\Applications\rabbitmq_server-3.6.6\sbin
+PS C:\Users\jbbar\Applications\rabbitmq_server-3.6.6\sbin> .\rabbitmq-server
+
+              RabbitMQ 3.6.6. Copyright (C) 2007-2016 Pivotal Software, Inc.
+  ##  ##      Licensed under the MPL.  See http://www.rabbitmq.com/
+  ##  ##
+  ##########  Logs: C:/Users/jbbar/AppData/Roaming/RabbitMQ/log/RABBIT~1.LOG
+  ######  ##        C:/Users/jbbar/AppData/Roaming/RabbitMQ/log/RABBIT~2.LOG
+  ##########
+              Starting broker...
+ completed with 6 plugins.
+
+
+http://localhost:15672/#/
+
+
+1 "Hello World!"
+
+· Java: https://www.rabbitmq.com/tutorials/tutorial-one-java.html
+
+mvn archetype:generate -DgroupId=com.malsolo.rabbitmq -DartifactId=rabbitmq-intro-java -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+Side note: logs
+https://www.slf4j.org/manual.html
+http://saltnlight5.blogspot.com.es/2013/08/how-to-configure-slf4j-with-different.html
+
+· Go: https://www.rabbitmq.com/tutorials/tutorial-one-go.html
