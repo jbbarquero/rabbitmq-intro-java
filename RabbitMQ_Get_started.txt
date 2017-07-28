@@ -41,3 +41,6 @@ https://www.slf4j.org/manual.html
 http://saltnlight5.blogspot.com.es/2013/08/how-to-configure-slf4j-with-different.html
 
 · Go: https://www.rabbitmq.com/tutorials/tutorial-one-go.html
+
+go get github.com/streadway/amqp
+
