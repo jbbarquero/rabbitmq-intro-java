@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public class Receiver {
-    private final static String QUEUE_NAME = "hello_from_java";
+    private final static String QUEUE_NAME = "hello_queue";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
