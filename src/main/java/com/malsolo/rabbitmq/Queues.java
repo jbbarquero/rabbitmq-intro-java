@@ -1,5 +1,5 @@
 package com.malsolo.rabbitmq;
 
 public enum Queues {
-    hello_queue, work_queues
+    hello_queue, work_queues, temp
 }

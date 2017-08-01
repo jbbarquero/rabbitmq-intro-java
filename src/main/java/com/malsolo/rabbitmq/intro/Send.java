@@ -1,5 +1,6 @@
 package com.malsolo.rabbitmq.intro;
 
+import com.malsolo.rabbitmq.Queues;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -10,10 +11,9 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public class Send {
-    private static final int MAX_NUMER = 100;
-    static Logger logger = LoggerFactory.getLogger(Send.class);
+    private static final int MAX_NUMBER = 100;
 
-    private final static String QUEUE_NAME = "hello_queue";
+    static Logger logger = LoggerFactory.getLogger(Send.class);
 
     public static void main(String[] args) throws IOException, TimeoutException {
 
@@ -30,9 +30,9 @@ public class Send {
             System.out.printf("Incorrect argument %s. Usage Send number_of_events%n", args[0]);
             return;
         }
-        if (number > MAX_NUMER) {
+        if (number > MAX_NUMBER) {
             System.out.printf("Incorrect argument, too big: %d, must be lower than %d. Usage Send number_of_events%n"
-                    , number, MAX_NUMER);
+                    , number, MAX_NUMBER);
             return;
         }
 
@@ -41,12 +41,12 @@ public class Send {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        channel.queueDeclare(Queues.hello_queue.name(), false, false, false, null);
         String message = "Hello from Java";
 
         for (int i = 0; i < number; i++) {
             String theMessage = String.format("%s: %d", message, i);
-            channel.basicPublish("", QUEUE_NAME, null, theMessage.getBytes());
+            channel.basicPublish("", Queues.hello_queue.name(), null, theMessage.getBytes());
             logger.debug("Published {}", theMessage);
         }
 
