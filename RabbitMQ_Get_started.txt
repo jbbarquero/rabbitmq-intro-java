@@ -68,3 +68,12 @@ Plugin configuration unchanged.
 Applying plugin configuration to rabbit@DESKTOP-G024Q3D... nothing to do.
 PS C:\Users\jbbar\Applications\rabbitmq_server-3.6.6\sbin>
 
+MAVEN ASSEMBLY: JAR EXECUTABLE
+
+https://maven.apache.org/shared/maven-archiver/examples/classpath.html
+https://maven.apache.org/plugins/maven-shade-plugin/examples/executable-jar.html
+https://maven.apache.org/plugins/maven-assembly-plugin/usage.html
+https://www.mkyong.com/maven/create-a-fat-jar-file-maven-assembly-plugin/
+http://www.baeldung.com/executable-jar-with-maven
+
+
