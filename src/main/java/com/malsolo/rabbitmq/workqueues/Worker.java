@@ -16,7 +16,7 @@ public class Worker {
         Channel channel = connection.createChannel();
 
         boolean durable = true; //Remove the queue if it already exists and it was created not durable
-        channel.queueDeclare(Queues.work_queues.name(), durable, false, false, null);
+        channel.queueDeclare(Queues.work_queue.name(), durable, false, false, null);
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
@@ -40,7 +40,7 @@ public class Worker {
             }
         };
         boolean autoAck = false; // Message acknowledgment
-        channel.basicConsume(Queues.work_queues.name(), autoAck, consumer);
+        channel.basicConsume(Queues.work_queue.name(), autoAck, consumer);
 
     }
 

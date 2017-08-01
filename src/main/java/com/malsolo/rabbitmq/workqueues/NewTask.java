@@ -24,12 +24,12 @@ public class NewTask {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         boolean durable = true; //Because the consumer is also durable. Remove the queue if it already exists and it was created not durable
-        channel.queueDeclare(Queues.work_queues.name(), durable, false, false, null);
+        channel.queueDeclare(Queues.work_queue.name(), durable, false, false, null);
 
         String message = getMessage(args);
 
         //Mark our messages as persisten
-        channel.basicPublish("", Queues.work_queues.name(), MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
+        channel.basicPublish("", Queues.work_queue.name(), MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
         System.out.println(" [x] Sent '" + message + "'");
 
         channel.close();
