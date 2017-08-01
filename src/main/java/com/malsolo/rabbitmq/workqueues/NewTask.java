@@ -29,6 +29,9 @@ public class NewTask {
         channel.basicPublish("", Queues.work_queues.name(), null, message.getBytes());
         System.out.println(" [x] Sent '" + message + "'");
 
+        channel.close();
+        connection.close();
+        logger.warn("Java work queues ends");
     }
 
     private static String getMessage(String[] strings) {

@@ -31,6 +31,8 @@ public class Worker {
                 }
             }
         };
+        boolean autoAck = true; // acknowledgment is covered below
+        channel.basicConsume(Queues.work_queues.name(), autoAck, consumer);
 
     }
 
@@ -42,5 +44,6 @@ public class Worker {
             }
         }
         System.out.println();
+        System.out.println("End doWork");
     }
 }
