@@ -29,9 +29,13 @@ public class Worker {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                finally {
+                    System.out.println(" [x] Done");
+                    channel.basicAck(envelope.getDeliveryTag(), false);
+                }
             }
         };
-        boolean autoAck = true; // acknowledgment is covered below
+        boolean autoAck = false; // Message acknowledgment
         channel.basicConsume(Queues.work_queues.name(), autoAck, consumer);
 
     }
@@ -44,6 +48,5 @@ public class Worker {
             }
         }
         System.out.println();
-        System.out.println("End doWork");
     }
 }
