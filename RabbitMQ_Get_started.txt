@@ -44,3 +44,27 @@ http://saltnlight5.blogspot.com.es/2013/08/how-to-configure-slf4j-with-different
 
 go get github.com/streadway/amqp
 
+
+rabbitmq-plugins enable rabbitmq_shovel rabbitmq_shovel_management
+
+PS C:\Users\jbbar\Applications\rabbitmq_server-3.6.6\sbin> rabbitmq-plugins enable rabbitmq_sho
+ement
+The following plugins have been enabled:
+  rabbitmq_shovel_management
+  rabbitmq_shovel
+
+Applying plugin configuration to rabbit@DESKTOP-G024Q3D... failed.
+ * Could not contact node rabbit@DESKTOP-G024Q3D.
+   Changes will take effect at broker restart.
+ * Options: --online  - fail if broker cannot be contacted.
+            --offline - do not try to contact broker.
+PS C:\Users\jbbar\Applications\rabbitmq_server-3.6.6\sbin>
+
+
+PS C:\Users\jbbar\Applications\rabbitmq_server-3.6.6\sbin> rabbitmq-plugins enable rabbitmq_shovel rabbitmq_shovel_manag
+ement
+Plugin configuration unchanged.
+
+Applying plugin configuration to rabbit@DESKTOP-G024Q3D... nothing to do.
+PS C:\Users\jbbar\Applications\rabbitmq_server-3.6.6\sbin>
+
