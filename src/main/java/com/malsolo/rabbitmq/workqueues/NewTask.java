@@ -5,6 +5,7 @@ import com.malsolo.rabbitmq.Queues;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.MessageProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,11 +23,13 @@ public class NewTask {
         factory.setHost("localhost");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
-        channel.queueDeclare(Queues.work_queues.name(), false, false, false, null);
+        boolean durable = true; //Because the consumer is also durable. Remove the queue if it already exists and it was created not durable
+        channel.queueDeclare(Queues.work_queues.name(), durable, false, false, null);
 
         String message = getMessage(args);
 
-        channel.basicPublish("", Queues.work_queues.name(), null, message.getBytes());
+        //Mark our messages as persisten
+        channel.basicPublish("", Queues.work_queues.name(), MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
         System.out.println(" [x] Sent '" + message + "'");
 
         channel.close();

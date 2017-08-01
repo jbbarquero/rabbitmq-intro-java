@@ -15,7 +15,8 @@ public class Worker {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.queueDeclare(Queues.work_queues.name(), false, false, false, null);
+        boolean durable = true; //Remove the queue if it already exists and it was created not durable
+        channel.queueDeclare(Queues.work_queues.name(), durable, false, false, null);
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
