@@ -17,7 +17,7 @@ public class EmitLog {
     private static final String EXCHANGE_NAME = "logs";
 
     public static void main(String[] args) throws IOException, TimeoutException {
-        logger.info("Java Publish/Subscribe begins");
+        logger.info("Java Publish/Subscribe: Emitter");
 
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
